@@ -73,6 +73,9 @@ jQuery(document).ready(function($) {
         if($(this).attr('id') == 'edd-checkout-wizard-next-button') {
             if(edd_checkout_wizard_validate_current_view()) {
                 active_tab.attr('data-validated', 'true');
+                //OLC. The tab following tabs were not activating, because the addClass was using the <BR> tag, causing the bug.
+                $('.edd-checkout-wizard-nav-tabs').find('br').remove();
+
 
                if( active_tab.next().length ) {
                    active_tab.attr('data-current', 'false');
